@@ -45,7 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterMail.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Template\Register.html" />
   </ItemGroup>
