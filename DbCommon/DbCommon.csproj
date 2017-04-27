@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C439E4E-24F6-4E58-B616-2A757122AB92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DbCommon</RootNamespace>
+    <AssemblyName>DbCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.6.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\DLL\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementation\Configuration\RepositoryMappingCollection.cs" />
+    <Compile Include="Implementation\Configuration\RepositoryMappingConstants.cs" />
+    <Compile Include="Implementation\Configuration\RepositoryMappingElement.cs" />
+    <Compile Include="Implementation\Configuration\RepositorySettings.cs" />
+    <Compile Include="Implementation\Repositroies\BaseRepository.cs" />
+    <Compile Include="Implementation\Repositroies\Factory.cs" />
+    <Compile Include="Implementation\Repositroies\SqlRepositoryBase.cs" />
+    <Compile Include="Implementation\Repositroies\UnitOfWorkRepositoryBase.cs" />
+    <Compile Include="Implementation\UnitOfWork\DbFactories.cs" />
+    <Compile Include="Implementation\UnitOfWork\PowerUnitOfWork.cs" />
+    <Compile Include="Implementation\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\DomainBase\EntityBase.cs" />
+    <Compile Include="Infrastructure\DomainBase\IEntity.cs" />
+    <Compile Include="Infrastructure\EntityFactoryFramework\IEntityFactory.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IAddRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IAddsRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IQueryRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IRemoveRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IUnitOfWorkRepository.cs" />
+    <Compile Include="Infrastructure\RepositoryFramework\IUpdateRepository.cs" />
+    <Compile Include="Infrastructure\UnitOfWork\IPowerUnitOfWork.cs" />
+    <Compile Include="Infrastructure\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{2383aa6e-4868-47d0-9ed4-103086ed3544}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
